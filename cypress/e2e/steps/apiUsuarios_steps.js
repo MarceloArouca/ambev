@@ -1,6 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 const baseUrl = "https://serverest.dev/";
-let userId
 
 Given("que eu tenho a API disponivel", () => {
     cy.log("API está disponível");
@@ -45,5 +44,19 @@ Then("o corpo da resposta deve conter {string}", (key) => {
 Then("o valor da {string} deve ser {string}", (key, value) => {
     const response = Cypress.env("response");
     expect(response.body[key]).to.eq(value);
-    userId = response.body["_id"].value;
+
+});
+
+Given("que queira realizar uma consulta pelos IDs dos {string} criado no cenario anterior", (endpoint) => {
+    const response = Cypress.env("response");
+    const userId = response.body["_id"];
+    cy.request({
+        method: "GET",
+        url: `${baseUrl}${endpoint}/${userId}`,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(response => {
+        Cypress.env("response", response);
+    })
 });

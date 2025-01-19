@@ -14,3 +14,10 @@ Funcionalidade: Testar a API de usuários SERVEREST
     Exemplos:
       | nome              | email              | password | administrador |
       | Arnaldo Tester QA | artestaq@teste.com | 123456   | true          |
+
+    Cenario: Consultar usuario por ID
+      Dado que queira realizar uma consulta pelos IDs dos "usuarios" criado no cenario anterior
+      Entao a resposta deve ter o status 200
+      E o corpo da resposta deve conter "nome"
+      E o valor da "nome" deve ser "Arnaldo Tester QA"
+
