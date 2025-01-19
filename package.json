@@ -1,0 +1,32 @@
+{
+  "name": "ambev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarceloArouca/ambev.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "cypress": "^12.17.2",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefnitions": true,
+    "stepDefinitions": "cypress/e2e/steps"
+  },
+  "keywords": [],
+  "author": "Marcelo Chain Arouca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarceloArouca/ambev/issues"
+  },
+  "homepage": "https://github.com/MarceloArouca/ambev#readme",
+  "dependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4"
+  },
+  "description": ""
+}
