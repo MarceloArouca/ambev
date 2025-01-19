@@ -1,18 +1,19 @@
-Feature: Cadastro de usuários
+#language: pt
+Funcionalidade: : Cadastro de usuários
 
-  Scenario: Preencher o formulário de cadastro de administrador com sucesso
-    Given que estou na página de cadastro
-    When eu preencho o campo "nome" com "Teste QA"
-    And eu preencho o campo "email" com "teste@qachain.com"
-    And eu preencho o campo "senha" com "123456"
-    And eu marco a opção "Cadastrar como administrador?"
-    And eu clico no botão "Cadastrar"
-    Then eu devo ver a mensagem de sucesso "Cadastro realizado com sucesso"
+  Cenario: : Preencher o formulário de cadastro de administrador com sucesso
+    Dado que estou na página de cadastro
+    Quando eu preencho o campo "nome" com "Teste QA"
+    E eu preencho o campo "email" com "teste@qachain.com"
+    E eu preencho o campo "senha" com "123456"
+    E eu marco a opção "Cadastrar como administrador?"
+    E eu clico no botão "Cadastrar"
+    Entao eu devo ver a mensagem de sucesso "Cadastro realizado com sucesso"
 
-  Scenario: Preencher o formulário de cadastro com sucesso
-    Given que estou na página de cadastro
-    When eu preencho o campo "nome" com "Teste QA NOT Admin"
-    And eu preencho o campo "email" com "testenotadmin@qaexample.com"
-    And eu preencho o campo "senha" com "123456"
-    And eu clico no botão "Cadastrar"
-    Then eu devo ver a mensagem de sucesso "Cadastro realizado com sucesso"
+  Cenario: Preencher o formulário de cadastro com sucesso
+    Dado que estou na página de cadastro
+    Quando eu preencho o campo "nome" com "Teste QA NOT Admin"
+    E eu preencho o campo "email" com "testenotadmin@qaexample.com"
+    E eu preencho o campo "senha" com "123456"
+    E eu clico no botão "Cadastrar"
+    Entao eu devo ver a mensagem de sucesso "Cadastro realizado com sucesso"
