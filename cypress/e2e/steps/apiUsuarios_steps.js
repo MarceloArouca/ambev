@@ -1,4 +1,5 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps'
+
 const baseUrl = "https://serverest.dev/";
 
 Given("que eu tenho a API disponivel", () => {
@@ -25,8 +26,7 @@ When(
                 "Content-Type": "application/json",
             },
         }).then((response) => {
-            // Envolve a resposta para uso nos próximos steps
-           Cypress.env("response", response)
+            Cypress.env("response", response)
         });
     }
 );
@@ -52,6 +52,19 @@ Given("que queira realizar uma consulta pelos IDs dos {string} criado no cenario
     const userId = response.body["_id"];
     cy.request({
         method: "GET",
+        url: `${baseUrl}${endpoint}/${userId}`,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(response => {
+        Cypress.env("response", response);
+    })
+});
+Given("que queira realizar a exclusao de {string} pelo ID criado no cenario anterior", (endpoint) => {
+    const response = Cypress.env("response");
+    const userId = response.body["_id"];
+    cy.request({
+        method: "DELETE",
         url: `${baseUrl}${endpoint}/${userId}`,
         headers: {
             "Content-Type": "application/json",

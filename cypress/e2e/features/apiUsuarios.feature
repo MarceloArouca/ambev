@@ -6,7 +6,7 @@ Funcionalidade: Testar a API de usuários SERVEREST
     Dado que eu tenho a API disponivel
     Quando eu envio uma requisicao POST para o "usuarios" com os dados:
       | nome   | email   | password   | administrador    |
-      | <nome> | <email> | <password> | <administrador> |
+      | <nome> | <email> | <password> | <administrador>  |
     Entao a resposta deve ter o status 201
     E o corpo da resposta deve conter "message"
     E o valor da "message" deve ser "Cadastro realizado com sucesso"
@@ -20,4 +20,10 @@ Funcionalidade: Testar a API de usuários SERVEREST
       Entao a resposta deve ter o status 200
       E o corpo da resposta deve conter "nome"
       E o valor da "nome" deve ser "Arnaldo Tester QA"
+
+    Cenario: Excluir um usuario pelo ID
+      Dado que queira realizar a exclusao de "usuarios" pelo ID criado no cenario anterior
+      Entao a resposta deve ter o status 200
+      E o corpo da resposta deve conter "message"
+      E o valor da "message" deve ser "Registro excluído com sucesso"
 
